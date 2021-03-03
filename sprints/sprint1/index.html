@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>C4C Transition Centre</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="C4C Transition Centre">
+	<meta name="author" content="C4C Fellows at CAF TG">
+	<link href="../../img/c4c/favicon.svg" rel="icon" type="image/x-icon">
+	<style>
+		body {
+			margin: 0;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<img id="screen1" src="./screens/446151591.png" alt="Screen" usemap="#screenmap1" width="1441px">
+
+	<map name="screenmap1">
+		<area shape="rect" coords="150,705,899,747" alt="Screen2" href="javascript:firstExpandClicked();">
+		<area shape="rect" coords="150,856,899,899" alt="Screen3" href="javascript:secondExpandClicked();">
+		<area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
+	</map>
+
+	<img id="screen2" src="./screens/446151592.png" alt="Screen" usemap="#screenmap2" width="1441px"
+		style="display: none;">
+
+	<map name="screenmap2">
+		<area shape="rect" coords="150,705,899,747" alt="Screen2" href="javascript:firstExpandClicked();">
+		<area shape="rect" coords="150,1031,899,1074" alt="Screen3" href="javascript:secondExpandClicked();">
+		<area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
+	</map>
+
+	<img id="screen3" src="./screens/446151593.png" alt="Screen" usemap="#screenmap3" width="1441px"
+		style="display: none;">
+
+	<map name="screenmap3">
+		<area shape="rect" coords="150,705,899,747" alt="Screen2" href="javascript:firstExpandClicked();">
+		<area shape="rect" coords="150,856,899,899" alt="Screen3" href="javascript:secondExpandClicked();">
+		<area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
+	</map>
+
+	<script src="../../js/wet-boew/deps/jquery.min.js"></script>
+	<script>
+		function firstExpandClicked() {
+			expand($("#screen2"));
+		}
+		function secondExpandClicked() {
+			expand($("#screen3"));
+		}
+		function expand(screen_img_element) {
+			var is_hidden = screen_img_element.is(":hidden");
+			hideAll();
+			if (is_hidden) {
+				screen_img_element.show();
+			} else {
+				$("#screen1").show();
+			}
+		}
+		function hideAll() {
+			$("#screen1").hide();
+			$("#screen2").hide();
+			$("#screen3").hide();
+		}
+	</script>
+</body>
+
+</html>
