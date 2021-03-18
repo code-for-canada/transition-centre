@@ -60,10 +60,11 @@
 					// Do not add this index page to the list.
 					if (file.path !== "docs/uploads/index.html") {
 						const a = document.createElement('a');
-						// Since the hosting is from the docs directory, remove it from the file path.
-						const hosting_path = file.path.replace('docs/','');
-						a.appendChild(document.createTextNode(hosting_path));
-						a.href = "./" + hosting_path;
+						// Since the hosting is from the docs directory, remove docs and
+						// the current uploads directory from the file path to get the relative path for hosting.
+						const relative_hosting_path = file.path.replace('docs/uploads/','');
+						a.appendChild(document.createTextNode(relative_hosting_path));
+						a.href = "./" + relative_hosting_path;
 						const li = document.createElement('li');
 						li.appendChild(a);
 						list_container.appendChild(li);
