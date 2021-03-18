@@ -57,19 +57,24 @@
 				if (file.type === "dir") {
 					getDirectoryFiles(list_container, root_api_url, file.path)
 				} else {
-					const a = document.createElement('a');
-					a.appendChild(document.createTextNode(file.path));
-					a.href = "../" + file.path;
-					const li = document.createElement('li');
-					li.appendChild(a);
-					list_container.appendChild(li);
+					// Do not add this index page to the list.
+					if (file.path !== "docs/uploads/index.html") {
+						const a = document.createElement('a');
+						// Since the hosting is from the docs directory, remove it from the file path.
+						const hosting_path = file.path.replace('docs/','');
+						a.appendChild(document.createTextNode(hosting_path));
+						a.href = "./" + hosting_path;
+						const li = document.createElement('li');
+						li.appendChild(a);
+						list_container.appendChild(li);
+					}
 				}
 			}
 		}
 		getDirectoryFiles(
 			document.getElementById("docsList"),
-			"https://api.github.com/repos/code-for-canada/transition-centre/contents/docs/",
-			"uploads"
+			"https://api.github.com/repos/code-for-canada/transition-centre/contents/",
+			"docs/uploads"
 		);
 	</script>
 	<!-- Adding a dummy footer for extra spaces at the page end. -->
