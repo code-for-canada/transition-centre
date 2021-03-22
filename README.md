@@ -1,22 +1,25 @@
-C4C Transition Centre
-=======
-Digital platform prototypes for user-centered and effective transition into civilian life.
+# C4C Transition Centre
+Digital platform prototypes and public documentation for user-centered and effective transition into civilian life.
 
-REQUIREMENTS
-=======
-A web-browser with HTML5 support.
+## Project setup
+```
+yarn install
+```
 
-How to run
-=======
-File system
+### Compiles and hot-reloads for development
 ```
-Open "index.html" from your browser.
+yarn serve
 ```
-Localhost
+
+### Compiles and minifies for production
 ```
-Deploy all of the files to a HTTP server and navigate to the path of "index.html" on localhost.
+yarn build
 ```
-Public domain
+
+### Lints and fixes files
 ```
-Deploy all of the files to a public HTTP server and navigate to the path of "index.html" by using the DNS address or public IP.
+yarn lint
 ```
+
+## Web Wiki
+The "docs" folder hosts the [Web Wiki](https://code-for-canada.github.io/transition-centre/) content which contains the prototype outcomes per sprint and the public documentation.
