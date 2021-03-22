@@ -3,6 +3,8 @@ node_modules/
 target/
 dist/
 manifest.xml
+# For now do not commit the yarn lock file.
+yarn.lock
 
 # OS generated files
 .DS_Store
@@ -13,16 +15,25 @@ manifest.xml
 ethumbs.db
 Thumbs.db
 
-# IDEs
+# Editor directories and files
 nbproject/
 .c9revisions/
-*.sublime-project
-*.sublime-workspace
 .pydevproject/
 .idea/
 .project/
 .settings/
 .vscode/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Logs
+# local env files
+.env.local
+.env.*.local
+
+# Log files
 *.log*
