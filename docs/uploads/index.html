@@ -2,85 +2,85 @@
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
-	<meta charset="utf-8">
-	<title>C4C Transition Centre</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="C4C Transition Centre">
-	<meta name="author" content="C4C Fellows at CAF TG">
-	<link href="../img/c4c/favicon.svg" rel="icon" type="image/x-icon">
-	<!-- Load the wet-boew stylesheets. -->
-	<link rel="stylesheet" href="../css/wet-boew/all.css">
-	<link rel="stylesheet" href="../css/wet-boew/theme.min.css">
-	<noscript>
-		<link rel="stylesheet" href="../css/wet-boew/noscript.min.css" />
-	</noscript>
+  <meta charset="utf-8">
+  <title>C4C Transition Centre</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="C4C Transition Centre">
+  <meta name="author" content="C4C Fellows at CAF TG">
+  <link href="../img/c4c/favicon.svg" rel="icon" type="image/x-icon">
+  <!-- Load the wet-boew stylesheets. -->
+  <link rel="stylesheet" href="../css/wet-boew/all.css">
+  <link rel="stylesheet" href="../css/wet-boew/theme.min.css">
+  <noscript>
+    <link rel="stylesheet" href="../css/wet-boew/noscript.min.css" />
+  </noscript>
 </head>
 
 <body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
-	<header>
-		<!-- Adding a dummy gcweb-menu nav for breadcrumb to position as expected. -->
-		<nav class="gcweb-menu" typeof="SiteNavigationElement" style="display:none;">
-			<button type="button"></button>
-			<ul role="menu"></ul>
-		</nav>
-		<nav id="wb-bc" property="breadcrumb">
-			<h2>You are here:</h2>
-			<div class="container">
-				<ol class="breadcrumb">
-					<li><a href="https://code-for-canada.github.io/transition-centre">C4C Transition Centre</a></li>
-					<li><a href="../">Wiki Home</a></li>
-					<li><a href="./">Public Documents Index</a></li>
-				</ol>
-			</div>
-		</nav>
-	</header>
-	<main property="mainContentOfPage" resource="#wb-main" class="container" typeof="WebPageElement">
-		<div class="row">
-			<div class="col-xs-12">
-				<img src="../img/c4c-fellows/c4c_fellows_at_caf_tg_banner.png" class="img-responsive cmpgn-img" alt="">
-				<section>
-					<h2 id="s1">Public Documents</h2>
-					<p>
-						Please click on one of the listed documents.
-					</p>
-					<ul id="docsList"></ul>
-				</section>
-			</div>
-		</div>
-	</main>
-	<script>
-		async function getDirectoryFiles(list_container, root_api_url, directory_path) {
-			const response = await fetch(root_api_url + directory_path);
-			const data = await response.json();
-			for (let file of data) {
-				if (file.type === "dir") {
-					getDirectoryFiles(list_container, root_api_url, file.path)
-				} else {
-					// Do not add this index page to the list.
-					if (file.path !== "docs/uploads/index.html") {
-						const a = document.createElement('a');
-						// Since the hosting is from the docs directory, remove docs and
-						// the current uploads directory from the file path to get the relative path for hosting.
-						const relative_hosting_path = file.path.replace('docs/uploads/','');
-						a.appendChild(document.createTextNode(relative_hosting_path));
-						a.href = "./" + relative_hosting_path;
-						const li = document.createElement('li');
-						li.appendChild(a);
-						list_container.appendChild(li);
-					}
-				}
-			}
-		}
-		getDirectoryFiles(
-			document.getElementById("docsList"),
-			"https://api.github.com/repos/code-for-canada/transition-centre/contents/",
-			"docs/uploads"
-		);
-	</script>
-	<!-- Adding a dummy footer for extra spaces at the page end. -->
-	<footer><br /><br /><br /></footer>
+  <header>
+    <!-- Adding a dummy gcweb-menu nav for breadcrumb to position as expected. -->
+    <nav class="gcweb-menu" typeof="SiteNavigationElement" style="display:none;">
+      <button type="button"></button>
+      <ul role="menu"></ul>
+    </nav>
+    <nav id="wb-bc" property="breadcrumb">
+      <h2>You are here:</h2>
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="https://code-for-canada.github.io/transition-centre">C4C Transition Centre</a></li>
+          <li><a href="../">Wiki Home</a></li>
+          <li><a href="./">Public Documents Index</a></li>
+        </ol>
+      </div>
+    </nav>
+  </header>
+  <main property="mainContentOfPage" resource="#wb-main" class="container" typeof="WebPageElement">
+    <div class="row">
+      <div class="col-xs-12">
+        <img src="../img/c4c-fellows/c4c_fellows_at_caf_tg_banner.png" class="img-responsive cmpgn-img" alt="">
+        <section>
+          <h2 id="s1">Public Documents</h2>
+          <p>
+            Please click on one of the listed documents.
+          </p>
+          <ul id="docsList"></ul>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script>
+    async function getDirectoryFiles(list_container, root_api_url, directory_path) {
+      const response = await fetch(root_api_url + directory_path);
+      const data = await response.json();
+      for (let file of data) {
+        if (file.type === "dir") {
+          getDirectoryFiles(list_container, root_api_url, file.path)
+        } else {
+          // Do not add this index page to the list.
+          if (file.path !== "docs/uploads/index.html") {
+            const a = document.createElement('a');
+            // Since the hosting is from the docs directory, remove docs and
+            // the current uploads directory from the file path to get the relative path for hosting.
+            const relative_hosting_path = file.path.replace('docs/uploads/','');
+            a.appendChild(document.createTextNode(relative_hosting_path));
+            a.href = "./" + relative_hosting_path;
+            const li = document.createElement('li');
+            li.appendChild(a);
+            list_container.appendChild(li);
+          }
+        }
+      }
+    }
+    getDirectoryFiles(
+      document.getElementById("docsList"),
+      "https://api.github.com/repos/code-for-canada/transition-centre/contents/",
+      "docs/uploads"
+    );
+  </script>
+  <!-- Adding a dummy footer for extra spaces at the page end. -->
+  <footer><br /><br /><br /></footer>
 
-	<body>
+  <body>
 
 </html>

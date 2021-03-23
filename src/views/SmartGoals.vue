@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="view-container">
     <img id="screen1" src="https://code-for-canada.github.io/transition-centre/sprints/sprint2/img/smart-goals/447782686.png"
       alt="Screen" usemap="#screenmap1" width="1441px" v-show="showScreen1">
 
@@ -34,7 +34,7 @@
 
 <script>
   export default {
-    name: "members-portal",
+    name: "smart-goals",
     data() {
        return {
           showScreen1: true,
@@ -51,8 +51,7 @@
 </script>
 
 <style scoped>
-  body {
-    margin: 0;
+  #view-container {
     text-align: center;
   }
 

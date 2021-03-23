@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="view-container">
     <img id="screen1" src="https://code-for-canada.github.io/transition-centre/sprints/sprint2/img/checklist-plan/447782688.png"
       alt="Screen" usemap="#screenmap1" width="1441px" v-show="showScreen1">
 
@@ -25,7 +25,7 @@
       <router-link to="/goals">
         <area shape="rect" coords="483,604,674,620" alt="SmartGoal">
       </router-link>
-      <area shape="rect" coords="205,1522,1270,1565" alt="GoalExpand" @click="clickGoalExpand">
+      <area shape="rect" coords="205,1522,1270,1565" alt="GoalExpand" @click="clickGoalUnExpand">
       <area shape="rect" coords="208,1568,1268,3228" alt="GoalFill" @click="clickGoalFill">
     </map>
 
@@ -61,7 +61,7 @@
 
 <script>
   export default {
-    name: "members-portal",
+    name: "checklist-plan2",
     data() {
        return {
           showScreen1: true,
@@ -98,8 +98,7 @@
 </script>
 
 <style scoped>
-  body {
-    margin: 0;
+  #view-container {
     text-align: center;
   }
 
