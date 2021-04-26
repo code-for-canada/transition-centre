@@ -33,6 +33,38 @@ const routes = [
       /* webpackChunkName: "plan2" */
       '../views/ChecklistPlan2.vue'
     )
+  },
+  {
+    path: '/plan3',
+    name: 'MembersPlan3',
+    component: () => import(
+      /* webpackChunkName: "plan3" */
+      '../views/ChecklistPlan3.vue'
+    )
+  },
+  {
+    path: '/calendar',
+    name: 'CalendarView',
+    component: () => import(
+      /* webpackChunkName: "calendar" */
+      '../views/CalendarView.vue'
+    )
+  },
+  {
+    path: '/history',
+    name: 'ConsultationHistory',
+    component: () => import(
+      /* webpackChunkName: "history" */
+      '../views/ConsultationHistory.vue'
+    )
+  },
+  {
+    path: '/schedule',
+    name: 'ConsultationHistory',
+    component: () => import(
+      /* webpackChunkName: "schedule" */
+      '../views/BookConsultation.vue'
+    )
   }
 ]
 
