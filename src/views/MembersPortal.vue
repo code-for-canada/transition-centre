@@ -10,7 +10,7 @@
           </p>
         </div>
         <div class="col-md-6">
-          <img class="img-responsive" src="../assets/narratives/portal_image.png" alt="">
+          <img class="img-responsive" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/narratives/portal_image.png" alt="">
         </div>
       </div>
       <div class="row">
@@ -67,10 +67,14 @@
                 </p>
               </div>
               <div class="col-xs-12 text-center blue-section-nav-padding">
-                <button type="button" class="btn btn-default">Book Consultation</button>
+                <router-link to="/schedule">
+                  <button type="button" class="btn btn-default">Book Consultation</button>
+                </router-link>
               </div>
               <div class="col-xs-12 text-center blue-section-nav-padding">
-                <a href="#">View upcoming appointments</a>
+                <router-link to="/history">
+                  <a href="#">View upcoming appointments</a>
+                </router-link>
               </div>
             </div>
           </section>
@@ -90,9 +94,11 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      Transition Calendar
-                    </a>
+                    <router-link to="/calendar">
+                      <a href="#">
+                        Transition Calendar
+                      </a>
+                    </router-link>
                   </li>
                   <li>
                     <a href="https://www.canada.ca/en/department-national-defence/services/benefits-military/transition/understanding-transition/transition-centres.html">
@@ -109,21 +115,21 @@
             <h2>Featured Resources</h2>
             <div class="row">
               <section class="col-md-4">
-                <img class="img-responsive" src="../assets/narratives/dtc_image.png" alt="">
+                <img class="img-responsive" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/narratives/dtc_image.png" alt="">
                 <h3 class="h5">
                   <a href="https://dtc.ongarde.net">Digital Transition Centre</a>
                 </h3>
                 <p>The DTC is a central resource for all transition related information to complement your portal.</p>
               </section>
               <section class="col-md-4">
-                <img class="img-responsive" src="../assets/narratives/vac_image.png" alt="">
+                <img class="img-responsive" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/narratives/vac_image.png" alt="">
                 <h3 class="h5">
                   <a href="https://www.veterans.gc.ca/eng/e_services?utm_campaign=MVA">MyVAC</a>
                 </h3>
                 <p>MyVAC is a central resource for all benefits and veteran related information.</p>
               </section>
               <section class="col-md-4">
-                <img class="img-responsive" src="../assets/narratives/mfs_image.png" alt="">
+                <img class="img-responsive" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/narratives/mfs_image.png" alt="">
                 <h3 class="h5">
                   <a href="https://www.cafconnection.ca/National/Programs-Services/For-Transitioning-Veterans-and-their-Families.aspx">Military Family Services</a>
                 </h3>
