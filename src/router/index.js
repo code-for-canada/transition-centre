@@ -60,7 +60,7 @@ const routes = [
   },
   {
     path: '/schedule',
-    name: 'ConsultationHistory',
+    name: 'BookConsultation',
     component: () => import(
       /* webpackChunkName: "schedule" */
       '../views/BookConsultation.vue'
