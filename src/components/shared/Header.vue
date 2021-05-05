@@ -1,15 +1,12 @@
 <template>
   <div class="par iparys_inherited">
     <div class="global-header">
-      <nav>
-        <ul id="wb-tphp" class="wb-init wb-disable-inited"></ul>
-      </nav>
-
       <header>
+
         <div id="wb-bnr" class="container">
           <div class="row">
-            <section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right">
-              <h2 class="wb-inv">Language selection</h2>
+            <section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right" aria-labelledby="lang-title">
+              <h2 id="lang-title" class="wb-inv">Language selection</h2>
               <div class="row">
                 <div class="col-md-12">
                   <ul class="list-inline mrgn-bttm-0">
@@ -32,9 +29,9 @@
           </div>
         </div>
 
-        <nav class="gcweb-menu" typeof="SiteNavigationElement">
+        <nav class="gcweb-menu" typeof="SiteNavigationElement" aria-labelledby="logout-title">
           <div class="container">
-            <h2 class="wb-inv">LOG OUT</h2>
+            <h2 id="logout-title" class="wb-inv">LOG OUT</h2>
             <div class="row">
               <div class="col-xs-12 pull-right text-right">
                 <a class="btn btn-dark" href="../../">LOG OUT</a>
@@ -43,8 +40,8 @@
           </div>
         </nav>
 
-        <nav id="wb-bc" property="breadcrumb">
-          <h2 class="wb-inv">You are here:</h2>
+        <nav id="wb-bc" property="breadcrumb" aria-labelledby="breadcrumb-title">
+          <h2 id="breadcrumb-title" class="wb-inv">You are here:</h2>
           <div class="container">
             <ol class="breadcrumb">
               <li><a href="./">My Digital Transition Portal</a></li>

@@ -2,8 +2,8 @@
   <div class="footer-container">
     <footer id="wb-info">
       <div class="landscape">
-        <nav class="container wb-navcurr">
-          <h2 class="wb-inv">About government</h2>
+        <nav class="container wb-navcurr" aria-labelledby="about-gov-title">
+          <h2 id="about-gov-title" class="wb-inv">About government</h2>
           <ul class="list-unstyled colcount-sm-2 colcount-md-3">
             <li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
             <li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
@@ -20,8 +20,8 @@
       <div class="brand">
         <div class="container">
           <div class="row">
-            <nav class="col-md-9 col-lg-10 ftr-urlt-lnk">
-              <h2 class="wb-inv">About this site</h2>
+            <nav class="col-md-9 col-lg-10 ftr-urlt-lnk" aria-labelledby="about-site-title">
+              <h2 id="about-site-title" class="wb-inv">About this site</h2>
               <ul>
                 <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
                 <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
