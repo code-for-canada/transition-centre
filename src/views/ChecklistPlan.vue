@@ -1,161 +1,311 @@
 <template>
   <div id="view-container">
-    <img id="screen1" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/checklist-plan/449896807.png"
-      alt="Screen" usemap="#screenmap1" width="1441px" v-show="showScreen1">
-
-    <map name="screenmap1">
-      <area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
-      <router-link to="/">
-        <area shape="rect" coords="151,172,356,189" alt="MainPortal">
-      </router-link>
-      <router-link to="/goals">
-        <area shape="rect" coords="147,839,501,894" alt="SmartGoal">
-      </router-link>
-      <router-link to="/plan3">
-        <area shape="rect" coords="433,921,627,960" alt="DueView">
-      </router-link>
-      <router-link to="/calendar">
-        <area shape="rect" coords="910,915,1045,958" alt="CalView">
-      </router-link>
-      <area shape="rect" coords="151,985,1287,1042" alt="SecUnExpand" @click="clickSecUnExpand">
-      <area shape="rect" coords="205,1167,1270,1208" alt="VACExpand" @click="clickVACExpand">
-    </map>
-
-    <img id="screen2" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/checklist-plan/450215392.png"
-      alt="Screen" usemap="#screenmap2" width="1441px" v-show="showScreen2">
-
-    <map name="screenmap2">
-      <area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
-      <router-link to="/">
-        <area shape="rect" coords="151,172,356,189" alt="MainPortal">
-      </router-link>
-      <router-link to="/goals">
-        <area shape="rect" coords="147,839,501,894" alt="SmartGoal">
-      </router-link>
-      <router-link to="/plan3">
-        <area shape="rect" coords="433,921,627,960" alt="DueView">
-      </router-link>
-      <router-link to="/calendar">
-        <area shape="rect" coords="910,915,1045,958" alt="CalView">
-      </router-link>
-      <area shape="rect" coords="151,985,1287,1042" alt="SecExpand" @click="clickUnExpand">
-    </map>
-
-    <img id="screen3" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/checklist-plan/449896808.png"
-      alt="Screen" usemap="#screenmap3" width="1441px" v-show="showScreen3">
-
-    <map name="screenmap3">
-      <area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
-      <router-link to="/">
-        <area shape="rect" coords="151,172,356,189" alt="MainPortal">
-      </router-link>
-      <router-link to="/goals">
-        <area shape="rect" coords="147,839,501,894" alt="SmartGoal">
-      </router-link>
-      <router-link to="/plan3">
-        <area shape="rect" coords="433,921,627,960" alt="DueView">
-      </router-link>
-      <router-link to="/calendar">
-        <area shape="rect" coords="910,915,1045,958" alt="CalView">
-      </router-link>
-      <area shape="rect" coords="151,985,1287,1042" alt="SecUnExpand" @click="clickSecUnExpand">
-      <area shape="rect" coords="205,1167,1270,1208" alt="VACCollaps" @click="clickUnExpand">
-      <area shape="rect" coords="221,1507,1239,2415" alt="VACFill" @click="clickVACFill">
-    </map>
-
-    <img id="screen4" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/checklist-plan/450215393.png"
-      alt="Screen" usemap="#screenmap4" width="1441px" v-show="showScreen4">
-
-    <map name="screenmap4">
-      <area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
-      <router-link to="/">
-        <area shape="rect" coords="151,172,356,189" alt="MainPortal">
-      </router-link>
-      <router-link to="/goals">
-        <area shape="rect" coords="147,839,501,894" alt="SmartGoal">
-      </router-link>
-      <router-link to="/plan3">
-        <area shape="rect" coords="433,921,627,960" alt="DueView">
-      </router-link>
-      <router-link to="/calendar">
-        <area shape="rect" coords="910,915,1045,958" alt="CalView">
-      </router-link>
-      <area shape="rect" coords="151,985,1287,1042" alt="SecUnExpand" @click="clickSecUnExpand">
-      <area shape="rect" coords="205,1167,1270,1208" alt="VACCollaps" @click="clickUnExpand">
-      <area shape="rect" coords="229,2428,331,2470" alt="VACSave" @click="clickVACSave">
-    </map>
-
-    <img id="screen5" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/checklist-plan/450215394.png"
-      alt="Screen" usemap="#screenmap5" width="1441px" v-show="showScreen5">
-
-    <map name="screenmap5">
-      <area shape="rect" coords="1165,115,1292,165" alt="Main" href="../../">
-      <router-link to="/">
-        <area shape="rect" coords="151,172,356,189" alt="MainPortal">
-      </router-link>
-      <router-link to="/goals">
-        <area shape="rect" coords="147,839,501,894" alt="SmartGoal">
-      </router-link>
-      <router-link to="/plan3">
-        <area shape="rect" coords="433,921,627,960" alt="DueView">
-      </router-link>
-      <router-link to="/calendar">
-        <area shape="rect" coords="910,915,1045,958" alt="CalView">
-      </router-link>
-      <area shape="rect" coords="151,985,1287,1042" alt="SecUnExpand" @click="clickSecUnExpand">
-    </map>
+    <Header/>
+    <main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="container">
+      <h1 property="name" id="wb-cont" dir="ltr">My Transition Plan</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            Prepare for a successful transition to post-service life by completing the below plan and setting transition goals.
+          </p>
+          <p>
+            Your Transition Advisor will help you with your transition journey.
+            They will see updates that you make here and can send you messages.
+            If you have any questions, your <a href="#">Transition Advisor</a> is available to help you.
+          </p>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="text-center well blue-section-background">
+            <p>
+              You are <span class="lead"><strong>44% complete</strong></span> your plan!
+            </p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="44"
+              aria-valuemin="0" aria-valuemax="100" style="width:44%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="text-center well blue-section-background">
+            <p><span class="lead"><strong>82</strong></span><br/>
+            day until your transition</p>
+          </div>
+        </div>
+      </div>
+      <section>
+        <h2>Transition Plan tasks</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-12">
+                <fieldset>
+                  <div id="wb-auto-4_filter" class="dataTables_filter">
+                    <label for="filter"><strong>Keyword Filter: </strong>
+                      <input id="filter" type="search" class="" placeholder="" aria-controls="wb-auto-4">
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-xs-12">
+                <fieldset class="provisional gc-chckbxrdio">
+                  <ul class="list-unstyled lst-spcd-2">
+                    <li class="checkbox">
+                      <input type="checkbox" id="cond1">
+                      <label for="cond1">Hide completed tasks</label>
+                    </li>
+                  </ul>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-xs-12">
+          <router-link to="/goals">
+            <button type="button" class="btn btn-call-to-action">+ Add new transition task or goal</button>
+          </router-link>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-6">
+              <span><b>Sort by: </b></span>
+              <button type="button" class="btn btn-selected-dark">Domains of Well-Being</button>
+              <router-link to="/plan3">
+                <button type="button" class="btn btn-not-selected">Due Date</button>
+              </router-link>
+            </div>
+            <div class="col-xs-6">
+              <div class="pull-right">
+                <router-link to="/calendar">
+                  <button type="button" class="btn">Calendar View</button>
+                </router-link>
+                &nbsp;&nbsp;
+                <button type="button" class="btn">Save Transition Plan to PDF</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-xs-12">
+          <div class="row" v-for="(item, categoryIndex) in plan" v-bind:key="categoryIndex">
+            <div class="col-xs-12">
+              <div name="nrdDetails" class="section">
+                <details>
+                  <summary>
+                    <strong style="font-size: 24px;">{{item.category}}</strong>
+                  </summary>
+                  <div class="row section-striped"
+                    v-for="(task, taskIndex) in item.tasks"
+                    v-bind:key="taskIndex"
+                  >
+                    <fieldset style="border-top: 1px solid #e5e5e5;">
+                    <div class="col-xs-12">
+                      <fieldset class="provisional gc-chckbxrdio" style="border-top:0;">
+                        <ul class="list-unstyled lst-spcd-2">
+                          <li class="checkbox" :ref="'checkbox-title-' + categoryIndex + '-' + taskIndex">
+                            <input type="checkbox"
+                              :id="'complete-' + categoryIndex + '-' + taskIndex"
+                              :ref="'complete-' + categoryIndex + '-' + taskIndex"
+                            >
+                            <label style="font-size: 22px;" :for="'complete-' + categoryIndex + '-' + taskIndex"><strong>{{task.name}}</strong></label>
+                          </li>
+                        </ul>
+                        <div style="position: relative; top: -20px;">
+                          <label
+                            :for="'due-date-' + categoryIndex + '-' + taskIndex"
+                            style="display: inline-block; margin-left: 36px; padding-left: 20px; font-weight: normal;"
+                          >
+                            Due date:
+                          </label>
+                          &nbsp;
+                          <input type="date" :id="'due-date-' + categoryIndex + '-' + taskIndex" :value="task.dueDate">
+                        </div>
+                      </fieldset>
+                      <div name="nrdDetails" class="section">
+                        <details :ref="'details-' + categoryIndex + '-' + taskIndex">
+                          <summary>
+                            More details: {{task.name}}
+                          </summary>
+                          <fieldset style="border-top:0;">
+                            <p>
+                              {{task.description}}
+                            </p>
+                            <p>
+                              <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/transition-guide/well-being-framework.html">
+                                <b>Domain of well-being:</b>
+                              </a>
+                              &nbsp;{{item.description}}
+                            </p>
+                          </fieldset>
+                          <fieldset class="provisional gc-chckbxrdio">
+                            <legend style="margin-bottom: 0px; font-size: 20px;">Task status:</legend>
+                            <ul class="list-unstyled lst-spcd-2">
+                              <li class="radio">
+                                <input type="radio"
+                                  :id="'mark-need-help-' + categoryIndex + '-' + taskIndex"
+                                  :ref="'mark-need-help-' + categoryIndex + '-' + taskIndex"
+                                  :name="'task-status-' + categoryIndex + '-' + taskIndex"
+                                >
+                                <label :for="'mark-need-help-' + categoryIndex + '-' + taskIndex">I need help (your Transition Advisor will be notified)</label>
+                              </li>
+                              <li class="radio">
+                                <input type="radio"
+                                  :id="'mark-complete-' + categoryIndex + '-' + taskIndex"
+                                  :ref="'mark-complete-' + categoryIndex + '-' + taskIndex"
+                                  :name="'task-status-' + categoryIndex + '-' + taskIndex"
+                                >
+                                <label :for="'mark-complete-' + categoryIndex + '-' + taskIndex">Complete</label>
+                              </li>
+                            </ul>
+                          </fieldset>
+                          <fieldset class="provisional gc-chckbxrdio">
+                            <legend style="margin-bottom: 0px; font-size: 20px;">Priority:</legend>
+                            <ul class="list-unstyled lst-spcd-2">
+                              <li class="radio">
+                                <input type="radio"
+                                  :id="'low-' + categoryIndex + '-' + taskIndex"
+                                  :ref="'low-' + categoryIndex + '-' + taskIndex"
+                                  :name="'priority-' + categoryIndex + '-' + taskIndex"
+                                >
+                                <label :for="'low-' + categoryIndex + '-' + taskIndex">Low</label>
+                              </li>
+                              <li class="radio">
+                                <input type="radio"
+                                  :id="'medium-' + categoryIndex + '-' + taskIndex"
+                                  :ref="'medium-' + categoryIndex + '-' + taskIndex"
+                                  :name="'priority-' + categoryIndex + '-' + taskIndex"
+                                >
+                                <label :for="'medium-' + categoryIndex + '-' + taskIndex">Medium</label>
+                              </li>
+                              <li class="radio">
+                                <input type="radio"
+                                  :id="'high-' + categoryIndex + '-' + taskIndex"
+                                  :ref="'high-' + categoryIndex + '-' + taskIndex"
+                                  :name="'priority-' + categoryIndex + '-' + taskIndex"
+                                >
+                                <label :for="'high-' + categoryIndex + '-' + taskIndex">High</label>
+                              </li>
+                            </ul>
+                          </fieldset>
+                          <fieldset style="border-top:0;">
+                            <span><b>My notes:</b></span>
+                            <span>&nbsp;<i>(Note: these notes will be visible to your transition advisor)</i></span>
+                            <textarea class="form-control" style="min-width: 100%" v-model="task.memberNotes"></textarea>                        
+                          </fieldset>
+                          <fieldset style="border-top:0;">
+                            <span><b>Notes from your Transition Advisor:</b></span>
+                            <p>You are doing great, keep up the good work! - Your Transition Advisor</p>                     
+                          </fieldset>
+                          <fieldset style="border-top:0;">
+                            <span><b>Attach relevant documents:</b></span>
+                            <p>Attach documents related to this task to help keep them organised and share them with your Transition Advisor.</p>                     
+                            <button type="button" class="btn btn-default">Attach Documents</button>
+                            <p><em>Note: Documents attached here will also be available through the Document Centre.</em></p>
+                          </fieldset>
+                          <fieldset>
+                            <button type="button"
+                              class="btn btn-primary"
+                              @click="save_task('' + categoryIndex + '-' + taskIndex)"
+                            >Save</button>
+                            <button type="button"
+                              class="btn btn-default"
+                              @click="cancel_task('' + categoryIndex + '-' + taskIndex)"
+                            >Cancel</button>
+                          </fieldset>
+                        </details>
+                      </div>
+                    </div>
+                    </fieldset>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>        
+        </div>
+        </div>
+      </section>
+    </main>
+    <Footer/>
   </div>
 </template>
 
 <script>
+  import Header from "@/components/shared/Header.vue"
+  import Footer from "@/components/shared/Footer.vue"
+
   export default {
     name: "checklist-plan",
+    components: {
+      Header,
+      Footer
+    },
     data() {
        return {
-          showScreen1: true,
-          showScreen2: false,
-          showScreen3: false,
-          showScreen4: false,
-          showScreen5: false,
+          plan: []
         }
     },
+    mounted: function () {
+      this.axios.get("https://code-for-canada.github.io/transition-centre/sprints/sprint5/mocks/api/plan/plan_items.json")
+        .then(response => {
+          this.plan = response.data;
+          console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    },
     methods: {
-      hideAll() {
-        this.showScreen1 = false;
-        this.showScreen2 = false;
-        this.showScreen3 = false;
-        this.showScreen4 = false;
-        this.showScreen5 = false;
+      save_task(category_and_task_id) {
+
+        if(this.$refs['mark-complete-' + category_and_task_id][0].checked === true){
+          this.$refs['complete-' + category_and_task_id][0].checked = true;
+        } else {
+          const sectionTitleElement = this.$refs['checkbox-title-' + category_and_task_id][0];
+
+          if (this.$refs['mark-need-help-' + category_and_task_id][0].checked === true) {
+            sectionTitleElement.innerHTML += "<span class='label label-danger'><small>Need Help</small></span>";
+          }
+
+          if(this.$refs['low-' + category_and_task_id][0].checked === true){
+            sectionTitleElement.innerHTML += "<span class='label label-info'><small>Low Priority</small></span>";
+          } else if (this.$refs['medium-' + category_and_task_id][0].checked === true) {
+            sectionTitleElement.innerHTML += "<span class='label label-primary'><small>Medium Priority</small></span>";
+          } else if (this.$refs['high-' + category_and_task_id][0].checked === true) {
+            sectionTitleElement.innerHTML += "<span class='label label-warning'><small>High Priority</small></span>";
+          }
+        }
+
+        this.$refs['details-' + category_and_task_id][0].open = false;
       },
-      switchScreen(is_screen_element_visible) {
-        this.hideAll();
-        this[is_screen_element_visible] = true;
-      },
-      clickUnExpand() {
-        this.switchScreen('showScreen1');
-      },
-      clickSecUnExpand() {
-        this.switchScreen('showScreen2');
-      },
-      clickVACExpand() {
-        this.switchScreen('showScreen3');
-      },
-      clickVACFill() {
-        this.switchScreen('showScreen4');
-      },
-      clickVACSave() {
-        this.switchScreen('showScreen5');
-      }  
+      cancel_task(category_and_task_id) {
+        this.$refs['details-' + category_and_task_id][0].open = false;
+      }
     }
   }
 </script>
 
 <style scoped>
-  #view-container {
-    text-align: center;
+  .blue-section-background {
+    padding: 16px;
+    background-color: #F7F9FD;
   }
 
-  area {
-    cursor: pointer;
+  .btn.btn-selected-dark {
+    border-radius: 0 !important;
+    pointer-events: none;
+    background-color: #333;
+    color: #fff;
+  }
+
+  .btn.btn-not-selected {
+    border-radius: 0 !important;
+  }
+
+  .section-striped:nth-child(even) {
+    background-color: #F7F9FD;
   }
 </style>
