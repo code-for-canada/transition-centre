@@ -65,6 +65,30 @@ const routes = [
       /* webpackChunkName: "schedule" */
       '../views/BookConsultation.vue'
     )
+  },
+  {
+    path: '/documents',
+    name: 'DocumentsCentre',
+    component: () => import(
+      /* webpackChunkName: "documents" */
+      '../views/DocumentsCentre.vue'
+    )
+  },
+  {
+    path: '/notes',
+    name: 'NotesCentre',
+    component: () => import(
+      /* webpackChunkName: "notes" */
+      '../views/NotesCentre.vue'
+    )
+  },
+  {
+    path: '/staff',
+    name: 'StaffProfile',
+    component: () => import(
+      /* webpackChunkName: "staff" */
+      '../views/StaffProfile.vue'
+    )
   }
 ]
 
