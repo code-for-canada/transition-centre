@@ -51,8 +51,13 @@
                 <fieldset class="provisional gc-chckbxrdio">
                   <ul class="list-unstyled lst-spcd-2">
                     <li class="checkbox">
-                      <input type="checkbox" id="cond1">
-                      <label for="cond1">Hide completed tasks</label>
+                      <input
+                        type="checkbox"
+                        id="hide-completed-checkbox"
+                        v-model="hideCompletedChecked"
+                        @change="hide_all_completed()"
+                      >
+                      <label for="hide-completed-checkbox">Hide completed tasks</label>
                     </li>
                   </ul>
                 </fieldset>
@@ -67,23 +72,22 @@
           </router-link>
         </div>
         </div>
-        <div class="row">
+        <div class="row bottom-buffer">
         <div class="col-xs-12">
           <div class="row">
             <div class="col-xs-6">
               <span><b>Sort by: </b></span>
-              <button type="button" class="btn btn-selected-dark">Domains of Well-Being</button>
+              <button type="button" class="btn btn-selected-dark btn-do-not-round-right-corner">Domains of Well-Being</button>
               <router-link to="/plan3">
-                <button type="button" class="btn btn-not-selected">Due Date</button>
+                <button type="button" class="btn btn-default btn-do-not-round-left-corner">Due Date</button>
               </router-link>
             </div>
             <div class="col-xs-6">
               <div class="pull-right">
                 <router-link to="/calendar">
-                  <button type="button" class="btn">Calendar View</button>
+                  <button type="button" class="btn btn-default margin-right-16">Calendar View</button>
                 </router-link>
-                &nbsp;&nbsp;
-                <button type="button" class="btn">Save Transition Plan to PDF</button>
+                <button type="button" class="btn btn-default">Save Transition Plan to PDF</button>
               </div>
             </div>
           </div>
@@ -102,7 +106,10 @@
                     v-for="(task, taskIndex) in item.tasks"
                     v-bind:key="taskIndex"
                   >
-                    <fieldset style="border-top: 1px solid #e5e5e5;">
+                    <fieldset
+                      style="border-top: 1px solid #e5e5e5;"
+                      :ref="'task-' + categoryIndex + '-' + taskIndex"
+                    >
                     <div class="col-xs-12">
                       <fieldset class="provisional gc-chckbxrdio" style="border-top:0;">
                         <ul class="list-unstyled lst-spcd-2">
@@ -110,8 +117,10 @@
                             <input type="checkbox"
                               :id="'complete-' + categoryIndex + '-' + taskIndex"
                               :ref="'complete-' + categoryIndex + '-' + taskIndex"
+                              @change="complete_task(categoryIndex, taskIndex)"
                             >
                             <label style="font-size: 22px;" :for="'complete-' + categoryIndex + '-' + taskIndex"><strong>{{task.name}}</strong></label>
+                            <span :ref="'checkbox-title-label' + categoryIndex + '-' + taskIndex"></span>
                           </li>
                         </ul>
                         <div style="position: relative; top: -20px;">
@@ -203,17 +212,17 @@
                           <fieldset style="border-top:0;">
                             <span><b>Attach relevant documents:</b></span>
                             <p>Attach documents related to this task to help keep them organised and share them with your Transition Advisor.</p>                     
-                            <button type="button" class="btn btn-default">Attach Documents</button>
+                            <p><button type="button" class="btn btn-default">Attach Documents</button></p>
                             <p><em>Note: Documents attached here will also be available through the Document Centre.</em></p>
                           </fieldset>
                           <fieldset>
                             <button type="button"
-                              class="btn btn-primary"
-                              @click="save_task('' + categoryIndex + '-' + taskIndex)"
+                              class="btn btn-primary min-width-100 margin-right-16"
+                              @click="save_task(categoryIndex, taskIndex)"
                             >Save</button>
                             <button type="button"
-                              class="btn btn-default"
-                              @click="cancel_task('' + categoryIndex + '-' + taskIndex)"
+                              class="btn btn-default min-width-100"
+                              @click="cancel_task(categoryIndex, taskIndex)"
                             >Cancel</button>
                           </fieldset>
                         </details>
@@ -245,6 +254,7 @@
     },
     data() {
        return {
+          hideCompletedChecked: true,
           plan: []
         }
     },
@@ -258,31 +268,71 @@
         console.log(error);
       })
     },
+    ready: function() {
+      if(this.hideCompletedChecked === true) {
+        this.hide_all_completed();
+      }
+    },
     methods: {
-      save_task(category_and_task_id) {
+      save_task(category_index, task_index) {
+        const category_and_task_id = category_index + '-' + task_index;
+        const sectionTitleElement = this.$refs['checkbox-title-label' + category_and_task_id][0];
+        sectionTitleElement.innerHTML = "";
 
         if(this.$refs['mark-complete-' + category_and_task_id][0].checked === true){
           this.$refs['complete-' + category_and_task_id][0].checked = true;
+          this.complete_task(category_index, task_index);
         } else {
-          const sectionTitleElement = this.$refs['checkbox-title-' + category_and_task_id][0];
+
 
           if (this.$refs['mark-need-help-' + category_and_task_id][0].checked === true) {
-            sectionTitleElement.innerHTML += "<span class='label label-danger'><small>Need Help</small></span>";
+            sectionTitleElement.innerHTML += "<span class='label label-danger' style='margin-left: 16px;'><small>Need Help</small></span>";
           }
 
           if(this.$refs['low-' + category_and_task_id][0].checked === true){
-            sectionTitleElement.innerHTML += "<span class='label label-info'><small>Low Priority</small></span>";
+            sectionTitleElement.innerHTML += "<span class='label label-info' style='margin-left: 16px;'><small>Low Priority</small></span>";
           } else if (this.$refs['medium-' + category_and_task_id][0].checked === true) {
-            sectionTitleElement.innerHTML += "<span class='label label-primary'><small>Medium Priority</small></span>";
+            sectionTitleElement.innerHTML += "<span class='label label-primary' style='margin-left: 16px;'><small>Medium Priority</small></span>";
           } else if (this.$refs['high-' + category_and_task_id][0].checked === true) {
-            sectionTitleElement.innerHTML += "<span class='label label-warning'><small>High Priority</small></span>";
+            sectionTitleElement.innerHTML += "<span class='label label-warning' style='margin-left: 16px;'><small>High Priority</small></span>";
           }
         }
 
         this.$refs['details-' + category_and_task_id][0].open = false;
       },
-      cancel_task(category_and_task_id) {
+      cancel_task(category_index, task_index) {
+        const category_and_task_id = category_index + '-' + task_index;
         this.$refs['details-' + category_and_task_id][0].open = false;
+      },
+      hide_all_completed() {
+        this.plan.forEach((category, category_index) => {
+          category.tasks.forEach((task, task_index) => {
+            this.hide_completed_task(category_index, task_index);
+          });
+        });
+      },
+      hide_completed_task(category_index, task_index) {
+        const task_element = this.$refs['task-' + category_index + '-' + task_index][0];
+        if (
+          this.hideCompletedChecked === true &&
+          this.plan[category_index].tasks[task_index].taskStatus === 1
+        ) {
+          task_element.hidden = true;
+        } else {
+          task_element.hidden = false;
+        }
+      },
+      complete_task(category_index, task_index) {
+        const category_and_task_id = category_index + '-' + task_index;
+        if(this.$refs['complete-' + category_and_task_id][0].checked === true) {
+          this.plan[category_index].tasks[task_index].taskStatus = 1;
+        } else {
+          this.clear_task_status(category_index, task_index);
+        }
+        this.hide_completed_task(category_index, task_index);
+      },
+      clear_task_status(category_index, task_index) {
+        this.plan[category_index].tasks[task_index].taskStatus = "";
       }
     }
   }
@@ -295,14 +345,31 @@
   }
 
   .btn.btn-selected-dark {
-    border-radius: 0 !important;
     pointer-events: none;
     background-color: #333;
     color: #fff;
   }
 
-  .btn.btn-not-selected {
-    border-radius: 0 !important;
+  .btn.btn-do-not-round-left-corner {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .btn.btn-do-not-round-right-corner {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .bottom-buffer {
+    margin-bottom: 24px;
+  }
+
+  .min-width-100 {
+    min-width: 100px;
+  }
+
+  .margin-right-16 {
+    margin-right: 16px;
   }
 
   .section-striped:nth-child(even) {
