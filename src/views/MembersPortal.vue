@@ -84,14 +84,18 @@
               <div class="col-xs-12">
                 <ul>
                   <li>
-                    <a href="#">
-                      Manage documents
-                    </a>
+                    <router-link to="/documents">
+                      <a href="#">
+                        Manage documents
+                      </a>
+                    </router-link>
                   </li>
                   <li>
-                    <a href="#">
-                      My transition notes
-                    </a>
+                    <router-link to="/notes">
+                      <a href="#">
+                        My transition notes
+                      </a>
+                    </router-link>
                   </li>
                   <li>
                     <router-link to="/calendar">
