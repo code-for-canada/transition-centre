@@ -40,19 +40,23 @@
           </div>
         </nav>
 
-        <nav id="wb-bc" property="breadcrumb" aria-labelledby="breadcrumb-title">
-          <h2 id="breadcrumb-title" class="wb-inv">You are here:</h2>
-          <div class="container">
-            <ol class="breadcrumb">
-              <li><a href="./">My Digital Transition Portal</a></li>
-            </ol>
-          </div>
-        </nav>
+        <Breadcrumb/>
 
       </header>
     </div>
   </div>
 </template>
+
+<script>
+import Breadcrumb from "@/components/shared/Breadcrumb.vue"
+
+export default {
+  name: "Header",
+  components: {
+    Breadcrumb
+  }
+}
+</script>
 
 <style scoped>
   .btn.btn-dark {
