@@ -8,7 +8,12 @@ const routes = [
   {
     path: '/',
     name: 'MembersPortal',
-    component: MembersPortal
+    component: MembersPortal,
+    meta: {
+      breadcrumb: [
+        {name: 'My Digital Transition Portal', link: '/'}
+      ]
+    }
   },
   {
     path: '/plan',
@@ -16,7 +21,13 @@ const routes = [
     component: () => import(
       /* webpackChunkName: "plan" */
       '../views/ChecklistPlan.vue'
-    )
+    ),
+    meta: {
+      breadcrumb: [
+        {name: 'My Digital Transition Portal', link: '/'},
+        {name: 'My Transition Plan', link: '/plan'}
+      ]
+    }
   },
   {
     path: '/goals',
