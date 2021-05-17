@@ -77,10 +77,20 @@
           <div class="row">
             <div class="col-xs-6">
               <span><b>Sort by: </b></span>
-              <button type="button" class="btn btn-selected-dark btn-do-not-round-right-corner">Domains of Well-Being</button>
-              <router-link to="/plan3">
-                <button type="button" class="btn btn-default btn-do-not-round-left-corner">Due Date</button>
-              </router-link>
+              <button type="button"
+                ref="sort-by-domains-of-well-being"
+                class="btn btn-default btn-do-not-round-right-corner btn-selected-dark"
+                @click="sort_by_domains_of_well_being"
+              >
+                Domains of Well-Being
+              </button>
+              <button type="button"
+                ref="sort-by-due-date"
+                class="btn btn-default btn-do-not-round-left-corner"
+                @click="sort_by_date"
+              >
+                Due Date
+              </button>
             </div>
             <div class="col-xs-6">
               <div class="pull-right">
@@ -259,14 +269,7 @@
         }
     },
     mounted: function () {
-      this.axios.get("https://code-for-canada.github.io/transition-centre/sprints/sprint5/mocks/api/plan/plan_items.json")
-        .then(response => {
-          this.plan = response.data;
-          console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+      this.get_plan_items();
     },
     ready: function() {
       if(this.hideCompletedChecked === true) {
@@ -274,6 +277,15 @@
       }
     },
     methods: {
+      get_plan_items() {
+        this.axios.get("https://code-for-canada.github.io/transition-centre/sprints/sprint5/mocks/api/plan/plan_items.json")
+          .then(response => {
+            this.plan = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      },
       save_task(category_index, task_index) {
         const category_and_task_id = category_index + '-' + task_index;
         const sectionTitleElement = this.$refs['checkbox-title-label' + category_and_task_id][0];
@@ -333,6 +345,57 @@
       },
       clear_task_status(category_index, task_index) {
         this.plan[category_index].tasks[task_index].taskStatus = "";
+      },
+      sort_by_date() {
+        let plan_by_date = [
+          {
+            "category": "Activities due in the next 30 days",
+            "tasks": []
+          },
+          {
+            "category": "Activities due in 30 - 60 days",
+            "tasks": []
+          },
+          {
+            "category": "Activities due in 60 - 90 days",
+            "tasks": []
+          },
+          {
+            "category": "Activities due in more than 90 days",
+            "tasks": []
+          },
+          {
+            "category": "Activities due after transition",
+            "tasks": []
+          }
+        ]
+        this.plan.forEach((category) => {
+          category.tasks.forEach((task) => {
+            const transfer_task = task;
+            const day_difference = Math.floor(Math.random() * 150);
+            if (day_difference <= 30) {
+              plan_by_date[0].tasks.push(transfer_task);
+            } else if (day_difference <= 60) {
+              plan_by_date[1].tasks.push(transfer_task);
+            } else if (day_difference <= 90) {
+              plan_by_date[2].tasks.push(transfer_task);
+            } else if (day_difference <= 120) {
+              plan_by_date[3].tasks.push(transfer_task);
+            } else {
+              plan_by_date[4].tasks.push(transfer_task);
+            }
+          });
+        });
+        this.plan = plan_by_date;
+        // Style the sort buttons accordingly.
+        this.$refs['sort-by-domains-of-well-being'].classList.remove('btn-selected-dark');
+        this.$refs['sort-by-due-date'].classList.add('btn-selected-dark');
+      },
+      sort_by_domains_of_well_being() {
+        this.get_plan_items();
+        // Style the sort buttons accordingly.
+        this.$refs['sort-by-due-date'].classList.remove('btn-selected-dark');
+        this.$refs['sort-by-domains-of-well-being'].classList.add('btn-selected-dark');
       }
     }
   }
@@ -348,6 +411,7 @@
     pointer-events: none;
     background-color: #333;
     color: #fff;
+    border-left: 0px;
   }
 
   .btn.btn-do-not-round-left-corner {

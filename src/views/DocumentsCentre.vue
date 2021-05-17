@@ -9,7 +9,7 @@
         <area shape="rect" coords="151,172,356,189" alt="MainPortal">
       </router-link>
       <area shape="rect" coords="146,585,518,645" alt="AddDocument" @click="addDocument">
-      <router-link to="/plan3">
+      <router-link to="/plan">
         <area shape="rect" coords="437,763,611,821" alt="GoConnected">
       </router-link>
       <area shape="rect" coords="1193,765,1262,794" alt="DeleteDocument" @click="deleteDocument">
@@ -86,7 +86,7 @@
         <area shape="rect" coords="151,172,356,189" alt="MainPortal">
       </router-link>
       <area shape="rect" coords="146,585,518,645" alt="AddDocument" @click="addDocument">
-      <router-link to="/plan3">
+      <router-link to="/plan">
         <area shape="rect" coords="437,763,611,821" alt="GoConnected">
       </router-link>
     </map>
