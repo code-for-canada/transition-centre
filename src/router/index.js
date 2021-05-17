@@ -46,14 +46,6 @@ const routes = [
     )
   },
   {
-    path: '/plan3',
-    name: 'MembersPlan3',
-    component: () => import(
-      /* webpackChunkName: "plan3" */
-      '../views/ChecklistPlan3.vue'
-    )
-  },
-  {
     path: '/calendar',
     name: 'CalendarView',
     component: () => import(

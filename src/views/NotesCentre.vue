@@ -9,13 +9,13 @@
         <area shape="rect" coords="151,172,356,189" alt="MainPortal">
       </router-link>
       <area shape="rect" coords="146,585,359,647" alt="AddNote" @click="addNote">
-      <router-link to="/plan3">
+      <router-link to="/plan">
         <area shape="rect" coords="515,761,702,865" alt="GoConnected">
       </router-link>
       <router-link to="/staff">
         <area shape="rect" coords="737,764,903,791" alt="GoStaff">
       </router-link>
-      <router-link to="/plan3">
+      <router-link to="/plan">
         <area shape="rect" coords="1194,764,1239,791" alt="EditNote">
       </router-link>
     </map>
@@ -84,13 +84,13 @@
         <area shape="rect" coords="151,172,356,189" alt="MainPortal">
       </router-link>
       <area shape="rect" coords="146,585,518,645" alt="AddNote" @click="addNote">
-      <router-link to="/plan3">
+      <router-link to="/plan">
         <area shape="rect" coords="502,762,700,892" alt="GoConnected">
       </router-link>
       <router-link to="/staff">
         <area shape="rect" coords="730,912,908,946" alt="GoStaff">
       </router-link>
-      <router-link to="/plan3">
+      <router-link to="/plan">
         <area shape="rect" coords="1194,764,1239,791" alt="EditNote">
       </router-link>
     </map>
