@@ -278,7 +278,7 @@
     },
     methods: {
       get_plan_items() {
-        this.axios.get("https://code-for-canada.github.io/transition-centre/sprints/sprint5/mocks/api/plan/plan_items.json")
+        this.axios.get("/api/plan/plan_items")
           .then(response => {
             this.plan = response.data;
         })
@@ -372,7 +372,9 @@
         this.plan.forEach((category) => {
           category.tasks.forEach((task) => {
             const transfer_task = task;
-            const day_difference = Math.floor(Math.random() * 150);
+            const task_date = new Date(transfer_task.dueDate);
+            const today_date = new Date();
+            const day_difference = (task_date.getTime() - today_date.getTime()) / (1000 * 3600 * 24);
             if (day_difference <= 30) {
               plan_by_date[0].tasks.push(transfer_task);
             } else if (day_difference <= 60) {
