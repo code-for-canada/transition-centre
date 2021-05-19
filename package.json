@@ -23,6 +23,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "eslint-plugin-vuejs-accessibility": "^0.6.1",
+    "miragejs": "^0.1.41",
     "vue-axe": "^2.4.4",
     "vue-template-compiler": "^2.6.11"
   },
