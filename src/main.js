@@ -16,14 +16,9 @@ if (process.env.NODE_ENV === 'development') {
   Vue.use(VueAxe);
 }
 
-// We are including the mock api server for the prototype. 
-// Carry the below import to the above dev mode condition for an actual production build.
-import(
-  /* webpackChunkName: "mockapiserver" */
-  "./mocks/api/server"
-).then((module) => {
-  module.makeServer(process.env.NODE_ENV);
-});
+// Include the client side mock api server for the prototype. 
+import { makeServer } from "./mocks/api/server"
+makeServer(process.env.NODE_ENV)
 
 // Create the Vue instance.
 new Vue({
