@@ -291,11 +291,13 @@
         const sectionTitleElement = this.$refs['checkbox-title-label' + category_and_task_id][0];
         sectionTitleElement.innerHTML = "";
 
+        // Scroll to the top of the task element.
+        this.$refs['task-' + category_and_task_id][0].scrollIntoView();
+
         if(this.$refs['mark-complete-' + category_and_task_id][0].checked === true){
           this.$refs['complete-' + category_and_task_id][0].checked = true;
           this.complete_task(category_index, task_index);
         } else {
-
 
           if (this.$refs['mark-need-help-' + category_and_task_id][0].checked === true) {
             sectionTitleElement.innerHTML += "<span class='label label-danger' style='margin-left: 16px;'><small>Need Help</small></span>";
@@ -314,6 +316,8 @@
       },
       cancel_task(category_index, task_index) {
         const category_and_task_id = category_index + '-' + task_index;
+        // Scroll to the top of the task element.
+        this.$refs['task-' + category_and_task_id][0].scrollIntoView();
         this.$refs['details-' + category_and_task_id][0].open = false;
       },
       hide_all_completed() {
