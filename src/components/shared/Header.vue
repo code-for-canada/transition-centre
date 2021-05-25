@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                   <ul class="list-inline mrgn-bttm-0">
                     <li>
-                      <a lang="fr" href="https://translate.google.com/translate?sl=en&tl=fr&u=https://code-for-canada.github.io/transition-centre/sprints/sprint5/">
+                      <a lang="fr" href="https://translate.google.com/translate?sl=en&tl=fr&u=https://code-for-canada.github.io/transition-centre/sprints/sprint6/">
                         <span class="hidden-xs">Français</span>
                         <abbr title="Français" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">fr</abbr>
                       </a>

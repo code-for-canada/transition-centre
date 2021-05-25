@@ -1,6 +1,6 @@
 <template>
   <div id="view-container">
-    <img id="screen1" src="https://code-for-canada.github.io/transition-centre/sprints/sprint5/img/staff-profile/450897813.png"
+    <img id="screen1" src="https://code-for-canada.github.io/transition-centre/sprints/sprint6/img/contact-us/450725610.png"
       alt="Screen" usemap="#screenmap1" width="1441px">
 
     <map name="screenmap1">
@@ -8,11 +8,11 @@
       <router-link to="/">
         <area shape="rect" coords="151,172,356,189" alt="MainPortal">
       </router-link>
-      <router-link to="/schedule">
-        <area shape="rect" coords="960,366,1156,394" alt="BookConsultation">
+      <router-link to="/staff">
+        <area shape="rect" coords="164,738,330,772" alt="GoStaff">
       </router-link>
-      <router-link to="/messages">
-        <area shape="rect" coords="960,403,1187,426" alt="SendMessage">
+      <router-link to="/messages?screenNum=2">
+        <area shape="rect" coords="142,984,500,1052" alt="SendMessage">
       </router-link>
     </map>
   </div>
