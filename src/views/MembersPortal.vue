@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-6">
           <p>
-            Welcome to My Digital Transition Portal! This is your central location to plan and complete your transition from the military to post-service life.  Not sure where to start?  Your <a href="#">Transition Advisor</a> is available to help! 
+            Welcome to My Digital Transition Portal! This is your central location to plan and complete your transition from the military to post-service life.  Not sure where to start?  Book a consultation with your <router-link to="/staff">Transition Advisor</router-link>.
           </p>
         </div>
         <div class="col-md-6">
@@ -79,35 +79,39 @@
             </div>
           </section>
           <section class="blue-section-background">
-            <h2 class="mrgn-tp-0">Transition Support</h2>
+            <h2 class="mrgn-tp-0">My transition information centre</h2>
             <div class="row">
               <div class="col-xs-12">
                 <ul>
                   <li>
                     <router-link to="/documents">
-                      <a href="#">
-                        Manage documents
-                      </a>
+                        Transition documents
                     </router-link>
                   </li>
                   <li>
                     <router-link to="/notes">
-                      <a href="#">
-                        My transition notes
-                      </a>
+                        Transition notes
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link to="/messages">
+                        Secure Messaging
                     </router-link>
                   </li>
                   <li>
                     <router-link to="/calendar">
-                      <a href="#">
-                        Transition Calendar
-                      </a>
+                        Calendar
                     </router-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/department-national-defence/services/benefits-military/transition/understanding-transition/transition-centres.html">
-                      Contact Transition Centre
-                    </a>
+                    <router-link to="/account">
+                        Member Account Information
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link to="/contact">
+                        Contact Us
+                    </router-link>
                   </li>
                 </ul>
               </div>

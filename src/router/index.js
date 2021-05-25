@@ -92,6 +92,30 @@ const routes = [
       /* webpackChunkName: "staff" */
       '../views/StaffProfile.vue'
     )
+  },
+  {
+    path: '/messages',
+    name: 'MessageCentre',
+    component: () => import(
+      /* webpackChunkName: "messages" */
+      '../views/MessageCentre.vue'
+    )
+  },
+  {
+    path: '/account',
+    name: 'MemberAccount',
+    component: () => import(
+      /* webpackChunkName: "account" */
+      '../views/MemberAccount.vue'
+    )
+  },
+  {
+    path: '/contact',
+    name: 'ContactUs',
+    component: () => import(
+      /* webpackChunkName: "contact" */
+      '../views/ContactUs.vue'
+    )
   }
 ]
 
