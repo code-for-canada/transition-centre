@@ -38,9 +38,9 @@
             <div class="row">
               <section class="col-md-6">
                 <h3 class="h5">
-                  <a href="#">Manage your release</a>
+                  <a href="#">Apply to Transition</a>
                 </h3>
-                <p>Submit or update your release memo.</p>
+                <p>Submit or view the status of your transition application.</p>
               </section>
               <section class="col-md-6">
                 <h3 class="h5">
