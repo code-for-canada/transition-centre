@@ -107,7 +107,25 @@ const routes = [
     component: () => import(
       /* webpackChunkName: "account" */
       '../views/MemberAccount.vue'
-    )
+    ),
+    meta: {
+      breadcrumb: [
+        {name: 'My Digital Transition Portal', link: '/'}
+      ]
+    }
+  },
+  {
+    path: '/accountedit',
+    name: 'MemberAccountEdit',
+    component: () => import(
+      /* webpackChunkName: "accountedit" */
+      '../views/MemberAccountEdit.vue'
+    ),
+    meta: {
+      breadcrumb: [
+        {name: 'My Digital Transition Portal', link: '/'}
+      ]
+    }
   },
   {
     path: '/contact',

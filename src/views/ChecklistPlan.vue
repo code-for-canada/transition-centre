@@ -278,7 +278,7 @@
     },
     methods: {
       get_plan_items() {
-        this.axios.get("/api/plan/plan_items")
+        this.axios.get("/api/member/plan")
           .then(response => {
             this.plan = response.data;
         })
