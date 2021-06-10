@@ -36,14 +36,32 @@
         </div>
         <div class="row mrgn-bttm-lg">
           <div class="col-xs-12">
-            <label for="address-edit" class="mrgn-bttm-0">Address:</label>
+            <label for="email-address-edit" class="mrgn-bttm-0">Email address:</label>
+            <input id="email-address-edit" type="email" class="form-control input-fields" v-model="account.email"/>
+          </div>
+        </div>
+        <div class="row mrgn-bttm-lg">
+          <div class="col-xs-12">
+            <label for="address-edit" class="mrgn-bttm-0">Physical address:</label>
             <input id="address-edit" type="text" class="form-control input-fields" v-model="account.fullAddress"/>
           </div>
         </div>
         <div class="row mrgn-bttm-lg">
           <div class="col-xs-12">
-            <label for="email-address-edit" class="mrgn-bttm-0">Email address:</label>
-            <input id="email-address-edit" type="email" class="form-control input-fields" v-model="account.email"/>
+            <label for="posting" class="mrgn-bttm-0">Posting:</label>
+            <div id="posting" class="provisional gc-chckbxrdio">
+              <ul class="list-unstyled lst-spcd-2">
+                <li class="checkbox">
+                  <input
+                    type="checkbox"
+                    id="posting-outcan"
+                    name="posting-selection"
+                    v-model="account.outcan"
+                  >
+                  <label for="posting-outcan">I am posted outside of Canada (OUTCAN)</label>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="row mrgn-bttm-lg">
@@ -159,7 +177,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="row mrgn-tp-lg mrgn-bttm-lg">
+            <div class="row mrgn-tp-lg">
               <div class="col-xs-12">
                 <button type="button"
                   class="btn btn-primary min-width-100 margin-right-16"

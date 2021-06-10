@@ -6,5 +6,6 @@ export default {
   "email": "matt.smith22@gmail.com",
   "preferredLanguageWritten": "English",
   "preferredLanguageSpoken": "English",
-  "emailNotifications": "On"
+  "emailNotifications": "On",
+  "outcan": true
 }

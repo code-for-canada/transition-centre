@@ -28,14 +28,27 @@
       </div>
       <div class="row mrgn-bttm-lg">
         <div class="col-xs-12">
-          <label for="address" class="mrgn-bttm-0">Address:</label>
+          <label for="email-address" class="mrgn-bttm-0">Email address:</label>
+          <div id="email-address">{{account.email}}</div>
+        </div>
+      </div>
+      <div class="row mrgn-bttm-lg">
+        <div class="col-xs-12">
+          <label for="address" class="mrgn-bttm-0">Physical address:</label>
           <div id="address">{{account.fullAddress}}</div>
         </div>
       </div>
       <div class="row mrgn-bttm-lg">
         <div class="col-xs-12">
-          <label for="email-address" class="mrgn-bttm-0">Email address:</label>
-          <div id="email-address">{{account.email}}</div>
+          <label for="posting" class="mrgn-bttm-0">Posting:</label>
+            <div id="posting">
+              <div v-if="account.outcan">
+                Outside Canada (OUTCAN)
+              </div>
+              <div v-else>
+                Inside Canada (INCAN)
+              </div>
+            </div>
         </div>
       </div>
       <div class="row mrgn-bttm-lg">
