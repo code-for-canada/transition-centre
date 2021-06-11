@@ -11,7 +11,7 @@
           <p>
             Your Transition Advisor will help you with your transition journey.
             They will see updates that you make here and can send you messages.
-            If you have any questions, your <a href="#">Transition Advisor</a> is available to help you.
+            If you have any questions, your <router-link to="/staff">Transition Advisor</router-link> is available to help you.
           </p>
         </div>
         <div class="col-sm-6 col-md-3">
