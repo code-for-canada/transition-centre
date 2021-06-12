@@ -38,7 +38,7 @@
             <div class="row">
               <section class="col-md-6">
                 <h3 class="h5">
-                  <a href="#">Apply to Transition</a>
+                  <a href="https://code-for-canada.github.io/transition-centre/mocks/flows/phase1/mcs-portal-main-mock.html">Apply to Transition</a>
                 </h3>
                 <p>Submit or view the status of your transition application.</p>
               </section>
@@ -50,7 +50,7 @@
               </section>
               <section class="col-md-6">
                 <h3 class="h5">
-                  <a href="#">Learn about transition</a>
+                  <a href="https://www.canada.ca/en/department-national-defence/services/benefits-military/education-training/professional-development/defence-learning-network.html">Learn about transition</a>
                 </h3>
                 <p>Access transition related learnings, including My Transition 101 and Second Career Assistance Network seminars.</p>
               </section>
@@ -125,7 +125,7 @@
               <section class="col-md-4">
                 <img class="img-responsive" src="https://code-for-canada.github.io/transition-centre/sprints/sprint4/img/narratives/dtc_image.png" alt="">
                 <h3 class="h5">
-                  <a href="https://dtc.ongarde.net">Digital Transition Centre</a>
+                  <a href="https://code-for-canada.github.io/transition-centre/mocks/flows/phase2/dtc-main-mock.html">Digital Transition Centre</a>
                 </h3>
                 <p>The DTC is a central resource for all transition related information to complement your portal.</p>
               </section>
