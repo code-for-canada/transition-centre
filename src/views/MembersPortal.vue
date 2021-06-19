@@ -105,7 +105,7 @@
                   </li>
                   <li>
                     <router-link to="/account">
-                        Member Account Information
+                        Preferences
                     </router-link>
                   </li>
                   <li>
