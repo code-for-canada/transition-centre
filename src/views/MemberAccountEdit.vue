@@ -2,7 +2,7 @@
   <div id="member-account-container">
     <Header/>
     <main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="container">
-      <h1 property="name" id="wb-cont" dir="ltr">Member account information</h1>
+      <h1 property="name" id="wb-cont" dir="ltr">Preferences</h1>
       <div>
         <div class="row mrgn-tp-lg mrgn-bttm-lg">
           <div class="col-xs-12">
@@ -16,165 +16,138 @@
             >Cancel</button>
           </div>
         </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="full-name-edit" class="mrgn-bttm-0">First & last name:</label>
-            <input id="full-name-edit" type="text" class="form-control input-fields" v-model="account.fullName" readonly/>
-          </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="preferred-name-edit" class="mrgn-bttm-0">Preferred name:</label>
-            <input id="preferred-name-edit" type="text" class="form-control input-fields" v-model="account.preferredName"/>
-          </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="phone-number-edit" class="mrgn-bttm-0">Phone number:</label>
-            <input id="phone-number-edit" type="tel" class="form-control input-fields"  v-model="account.phone"/>
-          </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="email-address-edit" class="mrgn-bttm-0">Email address:</label>
-            <input id="email-address-edit" type="email" class="form-control input-fields" v-model="account.email"/>
-          </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="address-edit" class="mrgn-bttm-0">Physical address:</label>
-            <input id="address-edit" type="text" class="form-control input-fields" v-model="account.fullAddress"/>
-          </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="posting" class="mrgn-bttm-0">Posting:</label>
-            <div id="posting" class="provisional gc-chckbxrdio">
-              <ul class="list-unstyled lst-spcd-2">
-                <li class="checkbox">
-                  <input
-                    type="checkbox"
-                    id="posting-outcan"
-                    name="posting-selection"
-                    v-model="account.outcan"
-                  >
-                  <label for="posting-outcan">I am posted outside of Canada (OUTCAN)</label>
-                </li>
-              </ul>
+        <section>
+          <h2>Communications</h2>
+          <div class="row mrgn-bttm-lg">
+            <div class="col-xs-12">
+              <label for="phone-number-edit" class="mrgn-bttm-0">Phone number:</label>
+              <input id="phone-number-edit" type="tel" class="form-control input-fields"  v-model="account.phone"/>
             </div>
           </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="preferred-language" class="mrgn-bttm-0">Preferred language:</label>
-            <div id="preferred-language">
-              <div class="provisional gc-chckbxrdio">
-                <div class="row">
-                  <div class="col-xs-6 col-xs-auto">
-                    Written:
-                  </div>
-                  <div class="col-xs-6 col-xs-auto">
-                    <ul class="list-unstyled lst-spcd-2">
-                      <li class="radio">
-                        <input
-                          type="radio"
-                          id="preferred-language-written-english"
-                          name="preferred-language-written-selection"
-                          value="English"
-                          v-model="account.preferredLanguageWritten"
-                        >
-                        <label for="preferred-language-written-english">English</label>
-                      </li>
-                      <li class="radio">
-                        <input type="radio"
-                          id="preferred-language-written-french"
-                          name="preferred-language-written-selection"
-                          value="French"
-                          v-model="account.preferredLanguageWritten"
-                        >
-                        <label for="preferred-language-written-french">French</label>
-                      </li>
-                    </ul>
+          <div class="row mrgn-bttm-lg">
+            <div class="col-xs-12">
+              <label for="email-address-edit" class="mrgn-bttm-0">Email address:</label>
+              <input id="email-address-edit" type="email" class="form-control input-fields" v-model="account.email"/>
+            </div>
+          </div>
+          <div class="row mrgn-bttm-lg">
+            <div class="col-xs-12">
+              <label for="address-edit" class="mrgn-bttm-0">Postal address:</label>
+              <input id="address-edit" type="text" class="form-control input-fields" v-model="account.fullAddress"/>
+            </div>
+          </div>
+          <div class="row mrgn-bttm-lg">
+            <div class="col-xs-12">
+              <label for="preferred-language" class="mrgn-bttm-0">Preferred language:</label>
+              <div id="preferred-language">
+                <div class="provisional gc-chckbxrdio">
+                  <div class="row">
+                    <div class="col-xs-6 col-xs-auto">
+                      Written:
+                    </div>
+                    <div class="col-xs-6 col-xs-auto">
+                      <ul class="list-unstyled lst-spcd-2">
+                        <li class="radio">
+                          <input
+                            type="radio"
+                            id="preferred-language-written-english"
+                            name="preferred-language-written-selection"
+                            value="English"
+                            v-model="account.preferredLanguageWritten"
+                          >
+                          <label for="preferred-language-written-english">English</label>
+                        </li>
+                        <li class="radio">
+                          <input type="radio"
+                            id="preferred-language-written-french"
+                            name="preferred-language-written-selection"
+                            value="French"
+                            v-model="account.preferredLanguageWritten"
+                          >
+                          <label for="preferred-language-written-french">French</label>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="provisional gc-chckbxrdio">
-                <div class="row">
-                  <div class="col-xs-6 col-xs-auto">
-                    Spoken:
-                  </div>
-                  <div class="col-xs-6 col-xs-auto">
-                    <ul class="list-unstyled lst-spcd-2">
-                      <li class="radio">
-                        <input
-                          type="radio"
-                          id="preferred-language-spoken-english"
-                          name="preferred-language-spoken-selection"
-                          value="English"
-                          v-model="account.preferredLanguageSpoken"
-                        >
-                        <label for="preferred-language-spoken-english">English</label>
-                      </li>
-                      <li class="radio">
-                        <input
-                          type="radio"
-                          id="preferred-language-spoken-french"
-                          name="preferred-language-spoken-selection"
-                          value="French"
-                          v-model="account.preferredLanguageSpoken"
-                        >
-                        <label for="preferred-language-spoken-french">French</label>
-                      </li>
-                    </ul>
+                <div class="provisional gc-chckbxrdio">
+                  <div class="row">
+                    <div class="col-xs-6 col-xs-auto">
+                      Spoken:
+                    </div>
+                    <div class="col-xs-6 col-xs-auto">
+                      <ul class="list-unstyled lst-spcd-2">
+                        <li class="radio">
+                          <input
+                            type="radio"
+                            id="preferred-language-spoken-english"
+                            name="preferred-language-spoken-selection"
+                            value="English"
+                            v-model="account.preferredLanguageSpoken"
+                          >
+                          <label for="preferred-language-spoken-english">English</label>
+                        </li>
+                        <li class="radio">
+                          <input
+                            type="radio"
+                            id="preferred-language-spoken-french"
+                            name="preferred-language-spoken-selection"
+                            value="French"
+                            v-model="account.preferredLanguageSpoken"
+                          >
+                          <label for="preferred-language-spoken-french">French</label>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row mrgn-bttm-lg">
-          <div class="col-xs-12">
-            <label for="communications-preferences-edit" class="mrgn-bttm-0">Communications preferences:</label>
-            <div id="communications-preferences-edit">
-              <div class="provisional gc-chckbxrdio">
-                <div class="row">
-                  <div class="col-xs-6 col-xs-auto">
-                    Email notifications:
-                  </div>
-                  <div class="col-xs-6 col-xs-auto">
-                    <ul class="list-unstyled lst-spcd-2">
-                      <li class="radio">
-                        <input
-                          type="radio"
-                          id="communications-preferences-on"
-                          name="communications-preferences-selection"
-                          value="On"
-                          v-model="account.emailNotifications"
-                        >
-                        <label for="communications-preferences-on">On (recommended)</label>
-                      </li>
-                      <li class="radio">
-                        <input
-                          type="radio"
-                          id="communications-preferences-off"
-                          name="communications-preferences-selection"
-                          value="Off"
-                          v-model="account.emailNotifications"
-                        >
-                        <label for="communications-preferences-off">Off</label>
-                      </li>
-                    </ul>
+          <div class="row mrgn-bttm-lg">
+            <div class="col-xs-12">
+              <label for="communications-preferences-edit" class="mrgn-bttm-0">Automated communications:</label>
+              <div id="communications-preferences-edit">
+                <div class="provisional gc-chckbxrdio">
+                  <div class="row">
+                    <div class="col-xs-6 col-xs-auto">
+                      Email notifications:
+                    </div>
+                    <div class="col-xs-6 col-xs-auto">
+                      <ul class="list-unstyled lst-spcd-2">
+                        <li class="radio">
+                          <input
+                            type="radio"
+                            id="communications-preferences-on"
+                            name="communications-preferences-selection"
+                            value="On"
+                            v-model="account.emailNotifications"
+                          >
+                          <label for="communications-preferences-on">On (recommended)</label>
+                        </li>
+                        <li class="radio">
+                          <input
+                            type="radio"
+                            id="communications-preferences-off"
+                            name="communications-preferences-selection"
+                            value="Off"
+                            v-model="account.emailNotifications"
+                          >
+                          <label for="communications-preferences-off">Off</label>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                <i>
-                Note: Email notifications must be turned on to receive a notification that there has been activity on your account.
-                </i>
+                <div>
+                  <i>
+                  Note: Email notifications must be turned on to receive a notification that there has been activity on your account.
+                  </i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
         <div class="row">
           <div class="col-xs-12">
             <div class="row mrgn-tp-lg">
