@@ -1,13 +1,13 @@
 import { Server, Response, Model } from "miragejs";
-import plan_items from './responses/plan_items'
-import account from './responses/account'
+import plan_items          from './responses/plan_items'
+import account             from './responses/account'
 
 export function makeServer(environment = "development") {
   let mock_server = new Server({
     environment,
 
     models: {
-      account: Model,
+      account: Model
     },
 
     routes() {
@@ -15,6 +15,15 @@ export function makeServer(environment = "development") {
 
       this.get('/member/plan', () => {
         return new Response(200, {}, plan_items);
+      });
+
+      this.get('/member/plan/firstvisit', (schema) => {
+        const is_plan_first_visit_status = schema.db.accounts[0].notifyAboutTA;
+        if(is_plan_first_visit_status) {
+          schema.accounts.first().update({ notifyAboutTA: false });
+        }
+        const respose = { "firstVisit": is_plan_first_visit_status }
+        return new Response(200, {}, respose);
       });
 
       this.get('/member/account', (schema) => {

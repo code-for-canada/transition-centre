@@ -30,6 +30,19 @@ const routes = [
     }
   },
   {
+    path: '/notification/bookta',
+    name: 'BookTransitionAdvisor',
+    component: () => import(
+      /* webpackChunkName: "notificationbookta" */
+      '../views/notifications/BookTransitionAdvisor.vue'
+    ),
+    meta: {
+      breadcrumb: [
+        {name: 'My Digital Transition Portal', link: '/'}
+      ]
+    }
+  },
+  {
     path: '/goals',
     name: 'SmartGoals',
     component: () => import(

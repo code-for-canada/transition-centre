@@ -5,5 +5,5 @@ export default {
   "preferredLanguageWritten": "English",
   "preferredLanguageSpoken": "English",
   "emailNotifications": "On",
-  "outcan": true
+  "notifyAboutTA": true
 }
