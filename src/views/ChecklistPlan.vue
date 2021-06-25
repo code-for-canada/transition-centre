@@ -269,7 +269,7 @@
         }
     },
     mounted: function () {
-      this.get_plan_items();
+      this.check_if_first_visit_and_get_plan();
     },
     ready: function() {
       if(this.hideCompletedChecked === true) {
@@ -277,6 +277,19 @@
       }
     },
     methods: {
+      check_if_first_visit_and_get_plan() {
+        this.axios.get("/api/member/plan/firstvisit")
+          .then(response => {
+            if(response.data.firstVisit) {
+              this.$router.push('/notification/bookta');
+            } else {
+              this.get_plan_items();
+            }
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      },
       get_plan_items() {
         this.axios.get("/api/member/plan")
           .then(response => {
