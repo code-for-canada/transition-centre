@@ -16,7 +16,7 @@
                     <li>
                       <a
                         lang="fr"
-                        href="https://translate.google.com/translate?sl=en&tl=fr&u=https://code-for-canada.github.io/transition-centre/sprints/sprint6/"
+                        href="https://translate.google.com/translate?sl=en&tl=fr&u=https://code-for-canada.github.io/transition-centre/sprints/sprint8/"
                       >
                         <span class="hidden-xs">Français</span>
                         <abbr
