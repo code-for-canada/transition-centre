@@ -230,27 +230,18 @@ export default {
     Header,
     Footer,
   },
-  data() {
-    return {
-      account: {},
-    };
-  },
-  mounted: function () {
-    this.axios
-      .get("/api/member/account")
-      .then((response) => {
-        this.account = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  computed: {
+    account() {
+      return {
+        ...this.$store.state.account,
+      };
+    },
   },
   methods: {
     save_edit_account() {
-      this.axios
-        .post("/api/member/account", this.account)
-        .then((response) => {
-          console.log(response);
+      this.$store
+        .dispatch("updateAccount", this.account)
+        .then(() => {
           this.go_view_account();
         })
         .catch((error) => {

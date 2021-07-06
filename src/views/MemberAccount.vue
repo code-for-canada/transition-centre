@@ -102,20 +102,12 @@ export default {
     Header,
     Footer,
   },
-  data() {
-    return {
-      account: {},
-    };
-  },
-  mounted: function () {
-    this.axios
-      .get("/api/member/account")
-      .then((response) => {
-        this.account = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  computed: {
+    account() {
+      return {
+        ...this.$store.state.account,
+      };
+    },
   },
 };
 </script>
