@@ -30,7 +30,7 @@ export function makeServer(environment = "development") {
         return schema.db.accounts[0];
       });
 
-      this.post("/member/account", (schema, request) => {
+      this.put("/member/account", (schema, request) => {
         schema.accounts.first().update(JSON.parse(request.requestBody));
         return new Response(200);
       });

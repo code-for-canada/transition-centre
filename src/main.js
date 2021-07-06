@@ -1,6 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import store from "./store";
 import axios from "axios";
 
 // Do not show production tip on startup.
@@ -20,8 +21,12 @@ if (process.env.NODE_ENV === "development") {
 import { makeServer } from "./mocks/api/server";
 makeServer(process.env.NODE_ENV);
 
+// Initializations
+store.dispatch("getAccount");
+
 // Create the Vue instance.
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount("#app");
