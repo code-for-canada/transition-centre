@@ -18,15 +18,15 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Include the client side mock api server for the prototype.
+// Modify this to have a seperate production path condition
+// for a future production version.
 import { makeServer } from "./mocks/api/server";
-makeServer(process.env.NODE_ENV);
-
-// Initializations
-store.dispatch("getAccount");
-
-// Create the Vue instance.
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+makeServer(() => {
+  // Create the Vue instance once
+  // the mock API server is fully created.
+  new Vue({
+    router,
+    store,
+    render: (h) => h(App),
+  }).$mount("#app");
+});
