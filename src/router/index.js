@@ -50,15 +50,6 @@ const routes = [
       ),
   },
   {
-    path: "/plan2",
-    name: "MembersPlan2",
-    component: () =>
-      import(
-        /* webpackChunkName: "plan2" */
-        "../views/ChecklistPlan2.vue"
-      ),
-  },
-  {
     path: "/calendar",
     name: "CalendarView",
     component: () =>

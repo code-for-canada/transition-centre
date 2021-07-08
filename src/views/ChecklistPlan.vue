@@ -294,6 +294,8 @@
                                         '-' +
                                         taskIndex
                                       "
+                                      value="0"
+                                      v-model="task.taskStatus"
                                     />
                                     <label
                                       :for="
@@ -327,6 +329,8 @@
                                         '-' +
                                         taskIndex
                                       "
+                                      value="1"
+                                      v-model="task.taskStatus"
                                     />
                                     <label
                                       :for="
@@ -340,6 +344,107 @@
                                   </li>
                                 </ul>
                               </fieldset>
+                              <div v-if="task.smartGoal">
+                                <fieldset style="border-top: 0">
+                                  <span><b>Specific:</b></span>
+                                  <span>
+                                    &nbsp;What do you want to achieve? What
+                                    actions will you take to get there?
+                                  </span>
+                                  <textarea
+                                    class="form-control min-width-100-percent"
+                                    v-model="task.specification"
+                                  ></textarea>
+                                </fieldset>
+                                <fieldset style="border-top: 0">
+                                  <span><b>Measureable:</b></span>
+                                  <span>
+                                    &nbsp;How will you track your goal? How will
+                                    you know you have succeeded?
+                                  </span>
+                                  <textarea
+                                    class="form-control min-width-100-percent"
+                                    v-model="task.measurement"
+                                  ></textarea>
+                                </fieldset>
+                                <fieldset style="border-top: 0">
+                                  <span><b>Attainable:</b></span>
+                                  <span>
+                                    &nbsp;Are you confident that you will be
+                                    able accomplish this goal?
+                                  </span>
+                                  <div class="provisional gc-chckbxrdio">
+                                    <ul class="list-unstyled lst-spcd-2">
+                                      <li class="radio">
+                                        <input
+                                          type="radio"
+                                          id="attainability-yes"
+                                          name="attainability"
+                                          value="yes"
+                                          v-model="task.attainable"
+                                        />
+                                        <label for="attainability-yes">
+                                          Yes
+                                        </label>
+                                      </li>
+                                      <li class="radio">
+                                        <input
+                                          type="radio"
+                                          id="attainability-no"
+                                          name="attainability"
+                                          value="no"
+                                          v-model="task.attainable"
+                                        />
+                                        <label for="attainability-no">
+                                          No - If you select “no,” how can you
+                                          make it attainable? (Note: if you
+                                          select “no,” your Transition Advisor
+                                          will be notified, to provide you with
+                                          additional support setting this goal)
+                                        </label>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </fieldset>
+                                <fieldset style="border-top: 0">
+                                  <span><b>Relevant:</b></span>
+                                  <span>
+                                    &nbsp;Is the goal worthwhile? Will it
+                                    accomplish what you need to accomplish?
+                                  </span>
+                                  <div class="provisional gc-chckbxrdio">
+                                    <ul class="list-unstyled lst-spcd-2">
+                                      <li class="radio">
+                                        <input
+                                          type="radio"
+                                          id="relevance-yes"
+                                          name="relevance"
+                                          value="yes"
+                                          v-model="task.relevant"
+                                        />
+                                        <label for="relevance-yes"> Yes </label>
+                                      </li>
+                                      <li class="radio">
+                                        <input
+                                          type="radio"
+                                          id="relevance-no"
+                                          name="relevance"
+                                          value="no"
+                                          v-model="task.relevant"
+                                        />
+                                        <label for="relevance-no">
+                                          No - If you select “no,” how can you
+                                          make it relevant to what you need to
+                                          accomplish? (Note: if you select “no,”
+                                          your Transition Advisor will be
+                                          notified, to provide you with
+                                          additional support setting this goal)
+                                        </label>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </fieldset>
+                              </div>
                               <fieldset class="provisional gc-chckbxrdio">
                                 <legend
                                   style="margin-bottom: 0px; font-size: 20px"
@@ -362,6 +467,8 @@
                                         '-' +
                                         taskIndex
                                       "
+                                      value="0"
+                                      v-model="task.priority"
                                     />
                                     <label
                                       :for="
@@ -391,6 +498,8 @@
                                         '-' +
                                         taskIndex
                                       "
+                                      value="1"
+                                      v-model="task.priority"
                                     />
                                     <label
                                       :for="
@@ -423,6 +532,8 @@
                                         '-' +
                                         taskIndex
                                       "
+                                      value="2"
+                                      v-model="task.priority"
                                     />
                                     <label
                                       :for="
@@ -735,6 +846,10 @@ export default {
 
 .min-width-100 {
   min-width: 100px;
+}
+
+.min-width-100-percent {
+  min-width: 100%;
 }
 
 .margin-right-16 {
