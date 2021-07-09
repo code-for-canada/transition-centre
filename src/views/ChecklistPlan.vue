@@ -22,20 +22,23 @@
             available to help you.
           </p>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-3" v-if="percentageCompletion >= 0">
           <div class="text-center well blue-section-background">
             <p>
               You are
-              <span class="lead"><strong>44% complete</strong></span> your plan!
+              <span class="lead"
+                ><strong>{{ percentageCompletion }}% complete</strong></span
+              >
+              your plan!
             </p>
             <div class="progress">
               <div
                 class="progress-bar progress-bar-success"
                 role="progressbar"
-                aria-valuenow="44"
+                :aria-valuenow="percentageCompletion"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style="width: 44%"
+                :style="'width: ' + percentageCompletion + '%'"
               ></div>
             </div>
           </div>
@@ -43,7 +46,8 @@
         <div class="col-sm-6 col-md-3">
           <div class="text-center well blue-section-background">
             <p>
-              <span class="lead"><strong>82</strong></span
+              <span class="lead"
+                ><strong>{{ releaseDate }}</strong></span
               ><br />
               day until your transition
             </p>
@@ -55,22 +59,6 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="row">
-              <div class="col-xs-12">
-                <fieldset>
-                  <div id="wb-auto-4_filter" class="dataTables_filter">
-                    <label for="filter"
-                      ><strong>Keyword Filter: </strong>
-                      <input
-                        id="filter"
-                        type="search"
-                        class=""
-                        placeholder=""
-                        aria-controls="wb-auto-4"
-                      />
-                    </label>
-                  </div>
-                </fieldset>
-              </div>
               <div class="col-xs-12">
                 <fieldset class="provisional gc-chckbxrdio">
                   <ul class="list-unstyled lst-spcd-2">
@@ -130,16 +118,10 @@
               <div class="col-xs-6">
                 <div class="pull-right">
                   <router-link to="/calendar">
-                    <button
-                      type="button"
-                      class="btn btn-default margin-right-16"
-                    >
+                    <button type="button" class="btn btn-default">
                       Calendar View
                     </button>
                   </router-link>
-                  <button type="button" class="btn btn-default">
-                    Save Transition Plan to PDF
-                  </button>
                 </div>
               </div>
             </div>
@@ -198,9 +180,8 @@
                                     '-' +
                                     taskIndex
                                   "
-                                  @change="
-                                    complete_task(categoryIndex, taskIndex)
-                                  "
+                                  :checked="task.taskStatus === '1'"
+                                  @change="save_task(categoryIndex, taskIndex)"
                                 />
                                 <label
                                   style="font-size: 22px"
@@ -219,7 +200,36 @@
                                     '-' +
                                     taskIndex
                                   "
-                                ></span>
+                                >
+                                  <span
+                                    class="label label-danger"
+                                    style="margin-left: 16px"
+                                    v-if="task.taskStatus === '0'"
+                                  >
+                                    <small>Need Help</small>
+                                  </span>
+                                  <span
+                                    class="label label-info"
+                                    style="margin-left: 16px"
+                                    v-if="task.priority === '0'"
+                                  >
+                                    <small>Low Priority</small>
+                                  </span>
+                                  <span
+                                    class="label label-primary"
+                                    style="margin-left: 16px"
+                                    v-if="task.priority === '1'"
+                                  >
+                                    <small>Medium Priority</small>
+                                  </span>
+                                  <span
+                                    class="label label-warning"
+                                    style="margin-left: 16px"
+                                    v-if="task.priority === '2'"
+                                  >
+                                    <small>High Priority</small>
+                                  </span>
+                                </span>
                               </li>
                             </ul>
                             <div style="position: relative; top: -20px">
@@ -572,25 +582,6 @@
                                   Your Transition Advisor
                                 </p>
                               </fieldset>
-                              <fieldset style="border-top: 0">
-                                <span><b>Attach relevant documents:</b></span>
-                                <p>
-                                  Attach documents related to this task to help
-                                  keep them organised and share them with your
-                                  Transition Advisor.
-                                </p>
-                                <p>
-                                  <button type="button" class="btn btn-default">
-                                    Attach Documents
-                                  </button>
-                                </p>
-                                <p>
-                                  <em
-                                    >Note: Documents attached here will also be
-                                    available through the Document Centre.</em
-                                  >
-                                </p>
-                              </fieldset>
                               <fieldset>
                                 <button
                                   type="button"
@@ -640,17 +631,33 @@ export default {
   },
   data() {
     return {
-      hideCompletedChecked: true,
+      hideCompletedChecked: false,
       plan: [],
     };
   },
+  computed: {
+    percentageCompletion() {
+      let total_items = 0;
+      let completed_items = 0;
+      this.plan.forEach((category) => {
+        total_items += category.tasks.length;
+        category.tasks.forEach((item) => {
+          if (item.taskStatus === "1") {
+            completed_items++;
+          }
+        });
+      });
+      return Math.round((completed_items / total_items) * 100);
+    },
+    releaseDate() {
+      const releaseDate = Date.parse(this.$store.state.account.releaseDate);
+      const today = new Date();
+      const releaseDays = Math.floor((releaseDate - today) / 86400000);
+      return releaseDays;
+    },
+  },
   mounted: function () {
     this.check_if_first_visit_and_get_plan();
-  },
-  ready: function () {
-    if (this.hideCompletedChecked === true) {
-      this.hide_all_completed();
-    }
   },
   methods: {
     check_if_first_visit_and_get_plan() {
@@ -672,53 +679,42 @@ export default {
         .get("/api/member/plan")
         .then((response) => {
           this.plan = response.data;
+          if (this.hideCompletedChecked) {
+            this.hide_all_completed();
+          }
         })
         .catch((error) => {
           console.log(error);
         });
     },
     save_task(category_index, task_index) {
-      const category_and_task_id = category_index + "-" + task_index;
-      const sectionTitleElement =
-        this.$refs["checkbox-title-label" + category_and_task_id][0];
-      sectionTitleElement.innerHTML = "";
-
-      // Scroll to the top of the task element.
-      this.$refs["task-" + category_and_task_id][0].scrollIntoView();
-
-      if (
-        this.$refs["mark-complete-" + category_and_task_id][0].checked === true
-      ) {
-        this.$refs["complete-" + category_and_task_id][0].checked = true;
-        this.complete_task(category_index, task_index);
-      } else {
-        if (
-          this.$refs["mark-need-help-" + category_and_task_id][0].checked ===
-          true
-        ) {
-          sectionTitleElement.innerHTML +=
-            "<span class='label label-danger' style='margin-left: 16px;'><small>Need Help</small></span>";
-        }
-
-        if (this.$refs["low-" + category_and_task_id][0].checked === true) {
-          sectionTitleElement.innerHTML +=
-            "<span class='label label-info' style='margin-left: 16px;'><small>Low Priority</small></span>";
-        } else if (
-          this.$refs["medium-" + category_and_task_id][0].checked === true
-        ) {
-          sectionTitleElement.innerHTML +=
-            "<span class='label label-primary' style='margin-left: 16px;'><small>Medium Priority</small></span>";
-        } else if (
-          this.$refs["high-" + category_and_task_id][0].checked === true
-        ) {
-          sectionTitleElement.innerHTML +=
-            "<span class='label label-warning' style='margin-left: 16px;'><small>High Priority</small></span>";
-        }
+      var category_and_task_id = category_index + "-" + task_index;
+      if (this.$refs["complete-" + category_and_task_id][0].checked === true) {
+        this.plan[category_index].tasks[task_index].taskStatus = "1";
       }
-
-      this.$refs["details-" + category_and_task_id][0].open = false;
+      this.axios
+        .put(
+          `/api/member/plan/category/${category_index}/item/${task_index}`,
+          this.plan[category_index].tasks[task_index]
+        )
+        .then(() => {
+          // Scroll to the top of the task element.
+          if (this.$refs["details-" + category_and_task_id][0].open) {
+            this.$refs["task-" + category_and_task_id][0].scrollIntoView();
+            this.$refs["details-" + category_and_task_id][0].open = false;
+          }
+          this.complete_task(category_index, task_index);
+        })
+        .catch((error) => {
+          console.log(error);
+          // Implement a error display functunality
+          // which informs them to take a back up of
+          // their data entry and try to save again.
+          this.cancel_task(category_index, task_index);
+        });
     },
     cancel_task(category_index, task_index) {
+      this.get_plan_items();
       const category_and_task_id = category_index + "-" + task_index;
       // Scroll to the top of the task element.
       this.$refs["task-" + category_and_task_id][0].scrollIntoView();
@@ -736,7 +732,7 @@ export default {
         this.$refs["task-" + category_index + "-" + task_index][0];
       if (
         this.hideCompletedChecked === true &&
-        this.plan[category_index].tasks[task_index].taskStatus === 1
+        this.plan[category_index].tasks[task_index].taskStatus === "1"
       ) {
         task_element.hidden = true;
       } else {
@@ -746,9 +742,7 @@ export default {
     complete_task(category_index, task_index) {
       const category_and_task_id = category_index + "-" + task_index;
       if (this.$refs["complete-" + category_and_task_id][0].checked === true) {
-        this.plan[category_index].tasks[task_index].taskStatus = 1;
-      } else {
-        this.clear_task_status(category_index, task_index);
+        this.plan[category_index].tasks[task_index].taskStatus = "1";
       }
       this.hide_completed_task(category_index, task_index);
     },
