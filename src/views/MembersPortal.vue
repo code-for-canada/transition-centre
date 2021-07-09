@@ -32,9 +32,14 @@
           <section>
             <div class="title-with-label-container">
               <h2 class="title-with-label">My Transition Plan</h2>
-              <span class="title-label-container">
+              <span
+                class="title-label-container"
+                v-if="this.percentageCompletion >= 0"
+              >
                 <span class="label label-default"
-                  ><small>44% Complete</small></span
+                  ><small
+                    >{{ this.percentageCompletion }}% Complete</small
+                  ></span
                 >
               </span>
             </div>
@@ -216,6 +221,22 @@ export default {
   components: {
     Header,
     Footer,
+  },
+  data() {
+    return {
+      percentageCompletion: 0,
+    };
+  },
+  mounted: function () {
+    this.axios
+      .get("/api/member/plan/completion")
+      .then((response) => {
+        this.percentageCompletion = response.data.percentageCompleted;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.percentageCompletion = "";
+      });
   },
 };
 </script>
