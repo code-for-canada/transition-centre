@@ -21,5 +21,10 @@ yarn build
 yarn lint
 ```
 
+### Runs e2e tests
+```
+yarn test:e2e
+```
+
 ## Web Wiki
 The "docs" folder hosts the [Web Wiki](https://code-for-canada.github.io/transition-centre/) content which contains the prototype outcomes per sprint and the public documentation.

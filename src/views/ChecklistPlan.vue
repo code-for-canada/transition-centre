@@ -96,12 +96,7 @@
                 <button
                   type="button"
                   ref="sort-by-domains-of-well-being"
-                  class="
-                    btn
-                    btn-default
-                    btn-do-not-round-right-corner
-                    btn-selected-dark
-                  "
+                  class="btn btn-default btn-do-not-round-right-corner btn-selected-dark"
                   @click="sort_by_domains_of_well_being"
                 >
                   Domains of Well-Being
@@ -585,11 +580,7 @@
                               <fieldset>
                                 <button
                                   type="button"
-                                  class="
-                                    btn btn-primary
-                                    min-width-100
-                                    margin-right-16
-                                  "
+                                  class="btn btn-primary min-width-100 margin-right-16"
                                   @click="save_task(categoryIndex, taskIndex)"
                                 >
                                   Save

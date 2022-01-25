@@ -21,12 +21,7 @@
                         <span class="hidden-xs">Français</span>
                         <abbr
                           title="Français"
-                          class="
-                            visible-xs
-                            h3
-                            mrgn-tp-sm mrgn-bttm-0
-                            text-uppercase
-                          "
+                          class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"
                           >fr</abbr
                         >
                       </a>

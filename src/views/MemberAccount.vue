@@ -1,5 +1,5 @@
 <template>
-  <div id="member-account-container">
+  <div id="member-account-container" data-test-preferences-content>
     <Header />
     <main
       property="mainContentOfPage"

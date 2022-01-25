@@ -138,7 +138,12 @@
                     <router-link to="/calendar"> Calendar </router-link>
                   </li>
                   <li>
-                    <router-link to="/account"> Preferences </router-link>
+                    <router-link
+                      to="/account"
+                      data-test-navigation-for-preferences
+                    >
+                      Preferences
+                    </router-link>
                   </li>
                   <li>
                     <router-link to="/contact"> Contact Us </router-link>
